@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Sunny Chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      
+
+      .chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
+      .chat_wrap .header > button {float:left; margin-left:10px; padding: 5px; font-size: 14px; background: #d95341;border: none; border-radius:5px;}
+
+      .chat_wrap .input-div { position: fixed; bottom: 0; width: 100%; background-color: #FFF; text-align: center; border-top: 1px solid #F18C7E; }
+      .chat_wrap .input-div > input { width: 80%; height: 80px; border: none; padding: 10px; }
+      .chat_wrap .input-div > button {width:10%; height:80px;padding: 10px;border-radius: 15px;background: #F18C7E;border: none;}
+      .chat_wrap .header ul {list-style-type: none; overflow: hidden;}
+      .chat_wrap .header ul li {float: left; padding: 5px 5px;}
+      .chat_wrap .header ul li > button {
+        background-color: #d95341; /* Green */
+        border-radius:5px;
+        margin-left: 3px;
+        border: none;
+        color: white;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        padding: 10px;
+      }
+      #printBox {font-size: 14px; color: black;}
+      #videoBox {
+          display: inline-grid;
+          grid-template-columns: repeat(auto-fill, minmax(100%, auto));
+      }
+      #videoBox video {
+          width: 100%;
+      }
+      .multi-video {
+          border: 1px solid black;
+          margin: 2px;
+      }
+      input[type=checkbox] {
+          display: none;
+      }
+
+      input[type=checkbox] + label{
+          display: inline-block;
+          cursor: pointer;
+          position: relative;
+          padding-left: 25px;
+          margin-right: 15px;
+          font-size: 13px;
+      }
+      input[type=checkbox]+ label:before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          position: absolute;
+          left: 0;
+          bottom: 1px;
+          background-color: #ccc;
+          border-radius: 2px;
+          box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+      }
+      input[type=checkbox]:checked + label:before {
+          content: "\2713";  /* 체크모양 */
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+          font-size: 18px;
+          font-weight:800;
+          color: #fff;
+          background:#2f87c1;
+          text-align: center;
+          line-height: 18px;
+      }
+      .format { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="chat_wrap">
+    <!--<form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>-->
+    <div class="header" id="header">
+        <ul>
+          <li><button id="loginBtn">login</button></li>
+          <li><button id="roomBtn">RoomJoin</button></li>
+          <li><input type="checkbox" id="videoFlag" class="checkbox-style" checked/><label for="videoFlag">비디오</label></li>
+          <li><input type="checkbox" id="subscribeFlag" class="checkbox-style" checked/><label for="subscribeFlag">subscribe</label></li>
+        </ul>
+    </div>
+    <div class="user">
+      
+    </div>
+    <div id="videoBox"></div><br/>
+    <div id="printBox"></div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    
+      
+    </div>
+    <script type="text/javascript" src="./lib/jssun.js"></script>
+  </body>
+</html>
